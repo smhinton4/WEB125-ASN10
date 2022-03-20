@@ -1,0 +1,608 @@
+*{
+    font-family: sans-serif;
+    }
+    
+    html,body{
+        width:100%;
+        height:100%;
+        margin:0;
+        padding:0;
+    }
+    
+    h1,h2,h3,h4{
+    font-family: 'Montserrat', sans-serif;
+     text-transform: uppercase;
+     cursor: default;
+    }
+    
+    #header-img img {
+        width:100%;
+        display:inline-block;
+        position:relative;
+    }
+    
+    #header-img h1{
+    position:absolute;
+    color:white;
+    text-align:center;
+    letter-spacing:1.7em;
+    text-transform:uppercase;
+    font-size: 2rem;
+    width:100%;
+    margin:0;
+    left:0;
+    right:0;
+    
+    }
+    
+
+    
+/* LINKS */
+
+a{
+color:black;
+text-decoration:none;
+}
+
+a:hover{
+    color: #4f42b5;
+    letter-spacing:0.2em;
+    transition: all 0.4s ease;
+}
+
+
+    /* BODY */
+    
+ p{
+        line-height:1;
+        padding:1%;
+    }
+
+
+
+img {
+width:400px;
+}
+
+
+    /* FOOTER */
+
+ #social-media{
+border-top:#4f42b5 1px solid;
+    }
+    footer{
+        padding-top:3%;
+        text-align:center;
+    }
+    
+#social-media img{
+     width:4%;
+    }
+    
+/* MAIN */
+
+
+
+/* BEACHES */
+
+
+.beaches{
+    margin:1.5%;
+}
+
+.beaches ul li{
+    padding:1%;
+    list-style:circle;
+}
+
+.beaches a{
+    border-bottom:#4f42b5 1px solid;
+    width:10%;
+}
+
+/* EVENTS */
+
+.event-calendar table{
+margin:1.5%;
+padding: 1%;
+}
+
+.event-calendar table td{
+border-bottom: #4f42b5 1px solid;
+border-collapse: collapse;
+padding: 1%;
+}
+
+.event-calendar table td:first-of-type{
+    border-right:#4f42b5 1px solid;
+}
+
+
+
+
+
+
+/* BUSINESSES */
+
+.businesses section{
+    margin:1%;
+    padding:1%;
+    border-bottom:#4f42b5 1px dotted;
+}
+
+
+
+
+/* CONTACT*/
+
+
+.contact a{
+    display:block;
+    padding:0.5%;
+}
+
+
+/**************************GRID******************************/
+
+.site{
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+    /*********************** MEDIA *******************/
+    
+    /* MOBILE */
+    
+    @media screen and (min-width:400px){
+
+        /***************** mobile nav ************************/
+    .menu-wrap{
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:1;
+    }
+    
+    .menu-wrap .toggler{
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:2;
+        cursor:pointer;
+        width:45px;
+        height:45px;
+        opacity:0;
+    }
+    
+    .menu-wrap .hamburger{
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:1;
+        width:45px;
+        height:45px;
+        padding:1rem;
+        background: #4f42b5;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    
+    
+    .menu-wrap .hamburger > div{
+        position:relative;
+        width:100%;
+        height:2px;
+        background-color:white;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        transition:all 0.4s;
+    }
+    .menu-wrap .hamburger > div:before,
+    .menu-wrap .hamburger > div:after{
+        content: '';
+        position:absolute;
+        z-index:1;
+        top:-10px;
+        width:100%;
+        height:2px;
+        background-color:white;
+    }
+    .menu-wrap .hamburger > div:after{
+        top:10px;
+    }
+    
+    /* hamburger mechanics */
+    
+    
+    .menu-wrap .toggler:checked + .hamburger > div{
+        transform:rotate(135deg);
+    }
+    
+    .menu-wrap .toggler:checked + .hamburger > div:before,
+    .menu-wrap .toggler:checked + .hamburger > div:after{
+        top:0;
+        transform: rotate(90deg);
+    
+    }
+    
+    .menu-wrap .menu {
+        position:fixed;
+        top:0;
+        left:0;
+        width:40%;
+        height:60%;
+        visibility: hidden;
+        overflow:hidden;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    
+    .menu-wrap .menu > div{
+        background:#4f42b5;
+        border-radius:50%;
+        width: 200vw;
+        height:200vw;
+        display:flex;
+        flex:none;
+        align-items:center;
+        justify-content:center;
+        transform:scale(0);
+        transition:all 0.4s ease;
+    }
+    .menu-wrap .menu > div > div{
+        text-align:center;
+        max-width:200vw;
+        max-height:200vw;
+        opacity:0;
+        transition:opacity 0.4s ease;
+    }
+    .menu-wrap .menu > div > div > ul > li{
+        text-transform:uppercase;
+        list-style:none;
+        color:white;
+        font-size: 1rem;
+        padding:1rem;
+        margin-left:2em;
+    }
+    
+    .menu-wrap .menu > div > div > ul > li > a{
+            color:inherit;
+            text-decoration:none;
+            transition: color 0.4s ease;
+    }
+    
+    .menu-wrap .menu > div > div > ul > li > a:hover{
+    color:black;
+    }
+    
+    .menu-wrap .toggler:checked ~ .menu{
+    visibility: visible;
+    }
+    .menu-wrap .toggler:checked ~ .menu > div{
+        transform:scale(1);
+    }
+    .menu-wrap .toggler:checked ~ .menu > div > div{
+        opacity:1;
+        transition: opacity 0.4s ease;
+    }
+    
+/***************************END OF MOBILE NAVIGATION**************************/
+
+/********************** 400px ****************************/
+#header-img h1{
+    position:absolute;
+    top:15%;
+    font-size:1.2rem;
+    text-align: right;
+}
+nav ul li{
+    display:none;
+}
+
+p{
+    margin:1%;
+}
+
+
+/********************************* GRID ****************************/
+
+
+#header-img{
+    grid-column:1/span 4;
+    grid-row:1;
+}
+
+
+
+
+.site footer{
+    grid-column:1/span 4;
+    grid-row:5;
+}
+
+section{
+    padding:1%;
+}
+/************************ HOMEPAGE ***********************************/
+
+.main-visit{
+    grid-row:2;
+    grid-column:1/ span 4;
+}
+
+.main-images img{
+    width:45%;
+}
+.main-images{
+    grid-row:3;
+    grid-column:1/span 4;
+}
+/************************** BEACHES ******************************/
+
+#beach-img{
+    display:none;
+}
+
+.beaches a{
+    display:block;
+    padding:2%;
+}
+
+.carolina-beach{
+    grid-row: 2;
+    grid-column:1/ span 4;
+}
+.kure-beach{
+    grid-row:3;
+    grid-column:1/span 4;
+}
+
+.fort-fisher{
+    grid-row:4;
+    grid-column:1/span 4;
+}
+
+/************** EVENTS ***************/
+
+.events{
+    grid-row:2;
+    grid-column: 1/span 4;
+}
+.event-calendar{
+    grid-row:3;
+    grid-column:1/span 4;
+}
+
+#events-img, #events-img2{
+    display:none;
+    width:80%;
+    padding: 1%;
+}
+
+
+
+/*************************** BUSINESSES ******************/
+
+.businesses{
+    grid-row:2;
+    grid-column:1/span 4;
+}
+
+.businesses section{
+    width:45%;
+    display:inline-block;
+    align-self: baseline;
+}
+
+/***** CONTACT SECTION ****************/
+.contact-map{
+grid-row:2;
+grid-column:1/span 2;
+}
+.contact-map iframe{
+height:400px;
+}
+.contact{
+grid-row:2;
+grid-column:3/span 4;
+background-color:white;
+}
+
+
+    }
+@media screen and (min-width:750px) {
+
+/*********************** 700 px *****************************/
+
+#header-img h1{
+    text-align:center;
+    position:absolute;
+    top:25%;
+    left:0;
+}
+
+
+
+/*********************** NAVIGATION **************************/
+
+
+    /* NAV */
+nav ul{
+    display:unset; 
+    margin:2%;
+}
+
+nav li a {
+        text-decoration: none;
+        color:black;
+        letter-spacing:0.2em;
+    }
+    
+nav a:hover{
+    color: #4f42b5;
+    transition: all 0.4s ease;
+    letter-spacing: 0.2em;
+    }
+    
+    nav ul li{
+        display:inline-block;
+        list-style:none;
+        text-transform:uppercase;
+        font-size: 1.2rem;
+        padding:1%;
+    }
+ /* hide mobile nav */
+.menu-wrap{
+    display:none;
+}
+.menu{
+    display:none;
+}
+
+.menu-wrap .hamburger{
+    display:none;
+}
+
+/*********** HOMEPAGE *****************/
+.main-visit{
+    margin:1%;
+    grid-row:2;
+    grid-column:1/ span 2;
+}
+.main-images{
+grid-row:2;
+grid-column:3/ span 4;
+}
+.main-images img{
+    width:85%;
+}
+
+
+
+
+/************************** BEACHES ******************************/
+
+.carolina-beach{
+    grid-row:2;
+    grid-column:1/span 4;
+    margin:2%;
+}
+
+.kure-beach{
+grid-row:3;
+grid-column:1/span 2;
+margin:1%;
+}
+
+.fort-fisher{
+grid-row:3;
+grid-column:3 /span 4;
+margin:1%;
+}
+
+/************ EVENTS *************************/
+#events-img, #events-img2{
+    display:unset;
+}
+#events-img{
+    width:60%;
+    grid-row:2;
+    grid-column:1/ span 3;
+}
+
+.events{
+    grid-row:2;
+    grid-column:3/span 4;
+}
+.events a{
+    display:block;
+    padding:1.5%;
+}
+.event-calendar{
+    grid-row:3;
+    grid-column:1/span 3;
+}
+
+/*************************** BUSINESSES ******************/
+
+
+
+/**************** CONTACT **********************/
+.contact-map{
+    grid-row:2;
+    grid-column:1/span 3;
+    }
+    .contact-map iframe{
+    width:500px;
+    height:400px;
+    }
+    .contact{
+    margin-left:4%;
+    grid-row:2;
+    grid-column:3/span 4;
+    background-color:white;
+    }
+.contact-map{
+    margin-left:2%;
+}
+
+}
+
+@media screen and(min-width:900px){
+.site{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+/* HOMEPAGE */
+
+.main-visit{
+    grid-row:2;
+    grid-column:1/span 4;
+}
+
+.main-images img{
+    width:32%;
+}
+.main-images{
+    grid-row:3;
+    grid-column:1/span 4;
+}
+
+
+/* BEACHES */
+
+
+/*BUSINESSES */
+
+
+/* CONTACT */
+
+
+.contact-map{
+    grid-row:2;
+    grid-column:1/span 3;
+    }
+    .contact-map iframe{
+    width:700px;
+    height:500px;
+    }
+    .contact{
+    margin-left:4%;
+    grid-row:2;
+    grid-column:3/span 4;
+    background-color:white;
+    }
+
+}
+
+
+       
+       
+       
